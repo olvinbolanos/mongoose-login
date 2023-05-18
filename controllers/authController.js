@@ -70,12 +70,13 @@ router.post('/register', async (req, res) => {
   const password = req.body.password;
 
   // encrypt our password
-  const hashedPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+  const salt = bcrypt.genSaltSync(10);
+  const hashedPassword = bcrypt.hashSync(password, salt);
   console.log(hashedPassword)
 
   req.body.password = hashedPassword;
 
-  // We create our use
+  // We create our user
   try {
       req.body.admin = true
       const createdUser = await User.create(req.body);
@@ -96,7 +97,6 @@ router.post('/register', async (req, res) => {
   } catch (err){
     res.send(err)
   }
-
 });
 
 

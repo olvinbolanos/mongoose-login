@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\db"
+    "\\controllers",
+    "\\db",
+    "\\models"
   ],
   "SelectedNode": "\\db\\db.js",
   "PreviewInSolutionExplorer": false
